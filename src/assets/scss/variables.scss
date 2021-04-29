@@ -1,0 +1,32 @@
+// Fonts
+$base-font: 'Lato', Roboto, sans-serif;
+$font-sizes: (-1: 15, 0: 18, 1: 25, 2: 90, 3: 180);
+$font-weights: (0: 300, 1: 400);
+
+// Colors
+$colors: (
+        'primary': #1086FF,
+        'light': #FFFFFF,
+        'black': #000000,
+        'nice': #498CEC,
+        'bad': #7290B9
+);
+
+// Shadows
+$shadows: (
+        'black': (
+                "color": "black",
+                size: (
+                  0,
+                  0,
+                  0,
+                ),
+                "opacity": 0.15
+        )
+);
+
+
+// Border radius
+$border-radius: (
+        0: 8
+);
