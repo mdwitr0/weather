@@ -13,7 +13,7 @@
   @if $rem {
     @return rem(map-get($font-sizes, $level));
   } @else if not $rem {
-    @return map-get($font-sizes, $level) +px;
+    @return map-get($font-sizes, $level);
   }
 }
 
