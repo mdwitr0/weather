@@ -1,0 +1,45 @@
+@function rem($px) {
+  // converts px to rem
+  @return ($px / font-size(0, false)) +rem;
+}
+
+@function color($key: 'ligth', $opacity: 1) {
+  // Search colors
+  @return rgba(map-get($colors, $key), $opacity);
+}
+
+@function font-size($level: 0, $rem: true) {
+  // Search for font-sizes
+  @if $rem {
+    @return rem(map-get($font-sizes, $level));
+  } @else if not $rem {
+    @return map-get($font-sizes, $level) +px;
+  }
+}
+
+@function weight($level: 0) {
+  // Search weight
+  @return map-get($font-weights, $level);
+}
+
+@function border-radius($level: 0) {
+  // Search border-radius
+  @return rem(map-get($borders-radius, $level));
+}
+
+@function element-shadow($key: 'black') {
+  // Search shadow
+  $currentMap: map-get($shadows, $key);
+  $result: '';
+
+  @each $size in map-get($currentMap, 'size') {
+    $result: $result + "#{rem($size)} "
+  }
+
+  $result: $result + color(
+    map-get($currentMap, 'color'),
+    map-get($currentMap, 'opacity')
+  );
+
+  @return #{$result};
+}
