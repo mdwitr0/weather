@@ -28,7 +28,10 @@
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "style-resources-loader": "^1.4.1",
+    "svgo": "^1.1.0",
+    "svgo-loader": "^2.1.0",
     "vue-cli-plugin-style-resources-loader": "~0.1.5",
+    "vue-cli-plugin-svg-sprite": "^1.1.0",
     "vue-template-compiler": "^2.6.11"
   }
 }
