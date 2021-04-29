@@ -1,0 +1,18 @@
+// Lato 300
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Lato'),
+  url('~@/assets/fonts/lato-light.woff2') format('woff2'),
+  url('~@/assets/fonts/lato-light.woff') format('woff'),
+}
+// Lato regular
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato'),
+    url('~@/assets/fonts/lato-regular.woff2') format('woff2'),
+    url('~@/assets/fonts/lato-regular.woff') format('woff'),
+}
