@@ -3,7 +3,7 @@
   @return ($px / font-size(0, false)) +rem;
 }
 
-@function color($key: 'ligth', $opacity: 1) {
+@function color($key: 'light', $opacity: 1) {
   // Search colors
   @return rgba(map-get($colors, $key), $opacity);
 }
