@@ -1,6 +1,14 @@
 // Fonts
 $base-font: 'Lato', Roboto, sans-serif;
-$font-sizes: (-1: 15, 0: 18, 1: 25, 2: 90, 3: 180);
+$font-sizes: (
+        -1: 15,
+        0: 18,
+        1: 25,
+        2: 30,
+        3: 50,
+        4: 90,
+        5: 180
+);
 $font-weights: (0: 300, 1: 400);
 
 // Colors
