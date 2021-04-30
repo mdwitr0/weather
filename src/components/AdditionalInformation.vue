@@ -1,7 +1,10 @@
 <template>
   <div v-if="value" class="additional-information">
-    <span v-if="name" class="additional-information__name">{{ name }}</span>
-    <span class="additional-information__value">{{ value }}</span>
+    <p v-if="name" class="additional-information__name">{{ name }}</p>
+    <p class="additional-information__info">
+      <span class="additional-information__value">{{ value }}</span>
+      {{ valueType }}
+    </p>
   </div>
 </template>
 
@@ -14,9 +17,13 @@ export default {
       default: null,
     },
     value: {
-      type: String,
+      type: Number,
       required: true,
     },
+    valueType: {
+      type: String,
+      required: true,
+    }
   },
 };
 </script>
