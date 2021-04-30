@@ -23,13 +23,13 @@ $colors: (
 // Shadows
 $shadows: (
         'black': (
-                "color": "black",
-                size: (
+                'color': "black",
+                'size': (
                   0,
                   0,
                   0,
                 ),
-                "opacity": 0.15
+                'opacity': 0.15
         )
 );
 
@@ -37,4 +37,14 @@ $shadows: (
 // Border radius
 $border-radius: (
         0: 8
+);
+
+// Borders
+$borders: (
+        'light': (
+                'size': 1,
+                'type': 'solid',
+                'color': 'light',
+                'opacity': 0.4
+        )
 );
