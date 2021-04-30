@@ -74,8 +74,20 @@ export default {
 
 <style lang="scss">
 .forecast {
+  box-sizing: border-box;
+  padding: rem(75) 0 rem(122) 0;
   height: 100vh;
   width: 100vw;
   background: color("nice");
+
+  &__container {
+    margin: 0 auto;
+    max-width: rem(1215);
+  }
+  &__additional-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-column-gap: rem(56);
+  }
 }
 </style>
