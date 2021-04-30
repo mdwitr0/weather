@@ -1,7 +1,7 @@
 <template>
   <div class="current-weather">
     <div class="current-weather__result">
-      <StateWeather :name="stateName" />
+      <StateWeather class="current-weather__state" :name="stateName" />
       <h2 class="current-weather__temperature">{{ temperature }}º</h2>
     </div>
     <p v-if="weatherAssessment" class="current-weather__assessment">
@@ -36,7 +36,7 @@ export default {
 .current-weather {
   display: grid;
   justify-content: center;
-
+  grid-row-gap: rem(7);
   &__temperature {
     font-size: font-size(5);
     font-weight: weight(1);
@@ -50,6 +50,9 @@ export default {
     display: grid;
     grid-template-columns: repeat(2, min-content);
     grid-column-gap: rem(14);
+  }
+  &__state {
+    margin: rem(8) rem(-4) 0 0;
   }
 }
 </style>
