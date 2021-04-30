@@ -2,8 +2,8 @@
   <div v-if="value" class="additional-information">
     <p v-if="name" class="additional-information__name">{{ name }}</p>
     <p class="additional-information__info">
-      <span class="additional-information__value">{{ value }}</span>
-      {{ valueType }}
+      <span class="additional-information__value">{{ value }}</span
+      >{{ valueType }}
     </p>
   </div>
 </template>
@@ -23,9 +23,18 @@ export default {
     valueType: {
       type: String,
       required: true,
-    }
+    },
   },
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.additional-information {
+  &__name {
+    color: color("light", 0.6);
+  }
+  &__info {
+    font-size: font-size(1);
+  }
+}
+</style>
