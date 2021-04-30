@@ -27,4 +27,33 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.search-city {
+  $padding-size: 31;
+  background: color();
+  box-shadow: shadow("black");
+  width: min-content;
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  border-radius: border-radius(0);
+  &__field {
+    color: color("black");
+    font-size: font-size(2);
+    padding: rem($padding-size);
+    font-weight: weight(1);
+    box-sizing: border-box;
+    width: rem(471);
+    &::placeholder {
+      color: color('black', 0.5);
+    }
+  }
+  &__button {
+    color: color("primary");
+    font-size: font-size(2);
+    padding: rem($padding-size);
+    &:hover {
+      color: color("nice");
+    }
+  }
+}
+</style>
