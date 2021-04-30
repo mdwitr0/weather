@@ -2,16 +2,16 @@
   <div class="user-location">
     <div class="user-location__info">
       <h1 class="user-location__city">{{ cityName }}</h1>
-      <SwitchTemperatureUnit />
+      <SwitchTemperatureUnit class="user-location__switch-tem" />
     </div>
     <div class="user-location__buttons">
-      <button class="user-location__search-city">Сменить город</button>
+      <button @click="switchSearchField" class="user-location__search-city">Сменить город</button>
       <button class="user-location__search-location">
         <SvgIcon name="arrow" class="user-location__arrow-icon" />
         Мое местоположение
       </button>
     </div>
-    <SearchCity />
+    <SearchCity v-show="searchVisible" class="user-location__search"/>
   </div>
 </template>
 
@@ -28,11 +28,22 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      searchVisible: false
+    }
+  },
+  methods: {
+    switchSearchField() {
+      this.searchVisible = !this.searchVisible
+    }
+  }
 };
 </script>
 
 <style lang="scss">
 .user-location {
+  position: absolute;
   &__city {
     font-size: font-size(3);
     font-weight: weight(1);
@@ -60,6 +71,10 @@ export default {
     display: grid;
     grid-template-columns: min-content 1fr;
     grid-column-gap: rem(11);
+  }
+  &__search {
+    position: absolute;
+    top: 0;
   }
 }
 </style>
