@@ -4,7 +4,24 @@ html {
   color: color();
 }
 
-body {
-  font-size: rem(10);
+body, p, h1, h2 {
   margin: 0;
+}
+
+button {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+input {
+  border: 0;
+  background: transparent;
+  font-weight: weight(1);
+  &::placeholder {
+    font-weight: weight(1);
+  }
+}
+button, input {
+  font-family: $base-font;
 }
