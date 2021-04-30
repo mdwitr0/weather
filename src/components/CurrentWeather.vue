@@ -32,4 +32,24 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.current-weather {
+  display: grid;
+  justify-content: center;
+
+  &__temperature {
+    font-size: font-size(5);
+    font-weight: weight(1);
+  }
+  &__assessment {
+    font-size: font-size(1);
+    text-align: center;
+    line-height: rem(18);
+  }
+  &__result {
+    display: grid;
+    grid-template-columns: repeat(2, min-content);
+    grid-column-gap: rem(14);
+  }
+}
+</style>
