@@ -1,23 +1,33 @@
 <template>
   <div id="app" class="forecast">
-    <header class="forecast__city">
-      <UserLocation city-name="Омск" />
+    <header class="forecast__header">
+      <div class="forecast__container">
+        <UserLocation class="forecast__user-location" :city-name="cityName" />
+      </div>
     </header>
-    <main class="forecast__weather">
-      <CurrentWeather
-        state-name="sun"
-        weather-assessment="Преимущественно солнечно"
-        :temperature="19"
-      />
+    <main class="forecast__main">
+      <div class="forecast__container">
+          <CurrentWeather
+              class="forecast__weather"
+              :state-name="stateName"
+              :weather-assessment="weatherAssessment"
+              :temperature="temperature"
+          />
+      </div>
     </main>
-    <footer class="forecast__additional">
-      <AdditionalInformation
-        v-for="(info, idx) in additionalInfo"
-        :key="idx"
-        :name="info.name"
-        :value="info.value"
-        :value-type="info.typeValue"
-      />
+    <footer class="forecast__footer">
+      <div class="forecast__container">
+        <div class="forecast__additional-list">
+          <AdditionalInformation
+              class="forecast__additional"
+              v-for="(info, idx) in additionalInfo"
+              :key="idx"
+              :name="info.name"
+              :value="info.value"
+              :value-type="info.valueType"
+          />
+        </div>
+      </div>
     </footer>
   </div>
 </template>
@@ -39,22 +49,22 @@ export default {
         {
           name: "Ветер",
           value: 5,
-          typeValue: "м/c, западный",
+          valueType: " м/c, западный",
         },
         {
           name: "Давление",
           value: 752,
-          typeValue: "мм рт. ст.",
+          valueType: " мм рт. ст.",
         },
         {
           name: "Влажность",
           value: 60,
-          typeValue: "%",
+          valueType: "%",
         },
         {
           name: "Вероятность дождя",
           value: 10,
-          typeValue: "%",
+          valueType: "%",
         },
       ],
     };
