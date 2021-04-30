@@ -155,6 +155,7 @@ export default {
 .state-weather {
   &__sprite {
     visibility: hidden;
+    position: absolute;
   }
   &__icon {
     $size: 200;
