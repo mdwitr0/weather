@@ -30,6 +30,8 @@ export default {
 
 <style lang="scss">
 .additional-information {
+  display: grid;
+  grid-row-gap: rem(10);
   &__name {
     color: color("light", 0.6);
   }
