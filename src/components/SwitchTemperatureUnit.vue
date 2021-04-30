@@ -73,6 +73,7 @@ export default {
   }
   &__unit {
     padding: rem(2) rem(13);
+    cursor: pointer;
     &_selected_yes {
       background: color("light", 0.2);
     }

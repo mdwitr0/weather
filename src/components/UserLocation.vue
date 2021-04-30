@@ -44,6 +44,9 @@ export default {
 <style lang="scss">
 .user-location {
   position: relative;
+  display: grid;
+  grid-row-gap: rem(9);
+  margin-left: rem(24);
   &__city {
     font-size: font-size(3);
     font-weight: weight(1);
@@ -55,10 +58,14 @@ export default {
     fill: color("light", 0.6);
     transform: rotate(11deg);
   }
+  &__info {
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    align-items: flex-start;
+  }
   &__search-city,
   &__search-location {
     font-size: font-size(0);
-
     color: color("light", 0.6);
     &:hover {
       color: color();
@@ -75,6 +82,14 @@ export default {
   &__search {
     position: absolute;
     top: 0;
+  }
+  &__buttons {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    grid-column-gap: rem(25);
+  }
+  &__switch-tem {
+    margin-top: rem(6);
   }
 }
 </style>
