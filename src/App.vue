@@ -6,7 +6,7 @@
       </div>
     </header>
     <main class="forecast__main">
-      <div class="forecast__container">
+      <div class="forecast__container forecast__container_size_large">
           <CurrentWeather
               class="forecast__weather"
               :state-name="stateName"
@@ -74,6 +74,8 @@ export default {
 
 <style lang="scss">
 .forecast {
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
   box-sizing: border-box;
   padding: rem(75) 0 rem(122) 0;
   height: 100vh;
@@ -83,11 +85,20 @@ export default {
   &__container {
     margin: 0 auto;
     max-width: rem(1215);
+    &_size_large {
+      display: grid;
+      align-items: center;
+      height: 100%;
+    }
   }
   &__additional-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-column-gap: rem(56);
+    grid-column-gap: rem(55);
+    margin: 0 rem(25);
+  }
+  &__weather {
+    margin-bottom: rem(54);
   }
 }
 </style>
