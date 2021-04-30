@@ -24,10 +24,10 @@
 
 @function border-radius($level: 0) {
   // Search border-radius
-  @return rem(map-get($borders-radius, $level));
+  @return rem(map-get($border-radius, $level));
 }
 
-@function element-shadow($key: 'black') {
+@function shadow($key: 'black') {
   // Search shadow
   $currentMap: map-get($shadows, $key);
   $result: '';
@@ -37,6 +37,17 @@
   }
 
   $result: $result + color(
+    map-get($currentMap, 'color'),
+    map-get($currentMap, 'opacity')
+  );
+
+  @return #{$result};
+}
+
+@function border($key: 'light') {
+  // Search borders
+  $currentMap: map-get($borders, $key);
+  $result: rem(map-get($currentMap, 'size')) map-get($currentMap, 'type') color(
     map-get($currentMap, 'color'),
     map-get($currentMap, 'opacity')
   );
