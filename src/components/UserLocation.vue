@@ -43,7 +43,7 @@ export default {
 
 <style lang="scss">
 .user-location {
-  position: absolute;
+  position: relative;
   &__city {
     font-size: font-size(3);
     font-weight: weight(1);
