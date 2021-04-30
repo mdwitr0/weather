@@ -9,13 +9,6 @@ module.exports = {
         path.resolve(__dirname, "./src/assets/scss/functions.scss"),
       ],
     },
-    svgSprite: {
-      dir: "src/assets/icons",
-      test: /\.(svg)(\?.*)?$/,
-      loaderOptions: {
-        extract: false,
-      },
-    },
   },
 
   chainWebpack: (config) => {
