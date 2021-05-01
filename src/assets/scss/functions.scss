@@ -1,11 +1,11 @@
-@function rem($px) {
+@function rem($px, $mobile: false) {
   // converts px to rem
   @return ($px / font-size(0, false)) +rem;
 }
 
-@function vw($px) {
+@function vw($px, $weight-name: 'xl') {
   // converts px to vw
-  $vw-context: ($template-weight * .01) * 1;
+  $vw-context: (map-get($windows-width, $weight-name) * .01) * 1;
   @return ($px/$vw-context) * 1vw;
 }
 
