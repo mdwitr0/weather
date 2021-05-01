@@ -36,23 +36,32 @@ export default {
 .current-weather {
   display: grid;
   justify-content: center;
-  grid-row-gap: rem(7);
+  @media (max-width: 640px) {
+    grid-row-gap: rem(15);
+  }
   &__temperature {
     font-size: font-size(5);
     font-weight: weight(1);
+    @media (max-width: 640px) {
+      font-size: font-size(4);
+      font-weight: weight(0);
+    }
   }
   &__assessment {
     font-size: font-size(1);
     text-align: center;
     line-height: rem(18);
+    @media (max-width: 640px) {
+      font-size: font-size(0);
+    }
   }
   &__result {
     display: grid;
     grid-template-columns: repeat(2, min-content);
     grid-column-gap: rem(14);
-  }
-  &__state {
-    margin: rem(8) rem(-4) 0 0;
+    @media (max-width: 640px) {
+      align-items: end;
+    }
   }
 }
 </style>
