@@ -36,6 +36,7 @@ $shadows: (
 
 // Border radius
 $border-radius: (
+        -1: 4,
         0: 8
 );
 
@@ -50,4 +51,7 @@ $borders: (
 );
 
 // Window weight
-$template-weight: 1366;
+$windows-width: (
+        's': 375,
+        'xl': 1366
+);
