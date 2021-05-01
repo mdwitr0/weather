@@ -41,13 +41,6 @@
           <stop offset="1" stop-color="#FFF3BC" />
         </linearGradient>
       </defs>
-      <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 21" id="arrow">
-        <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          d="M14.874 0L0 13.882h8.648l5.833 6.493L14.874 0z"
-        ></path>
-      </symbol>
       <symbol
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +57,7 @@
       <symbol
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 200 208"
+        viewBox="0 0 200 200"
         id="partly-cloudy"
       >
         <path
@@ -83,7 +76,7 @@
       <symbol
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 200 228"
+        viewBox="0 0 200 200"
         id="rain"
       >
         <path
@@ -100,21 +93,11 @@
       <symbol
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 200 228"
+        viewBox="0 0 200 200"
         id="storm"
       >
-        <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          d="M47.29 79.039C27.899 81.848 13 98.585 13 118.812 13 141.007 30.94 159 53.068 159h82.58C162.904 159 185 136.838 185 109.5S162.904 60 135.648 60a49.35 49.35 0 00-11.302 1.304C116.874 49.691 103.835 42 89 42c-21.517 0-39.255 16.18-41.71 37.039z"
-          fill="url(#bad_gradient)"
-        ></path>
-        <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          d="M86 135h39.056l-22.062 33H118l-43 52 11-39.5H75L86 135z"
-          fill="url(#lightning_gradient)"
-        ></path>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M47.29 51.0386C27.8988 53.8477 13 70.5847 13 90.8119C13 113.007 30.9391 131 53.0682 131H135.648C162.904 131 185 108.838 185 81.5C185 54.1619 162.904 32 135.648 32C131.759 32 127.975 32.4511 124.346 33.304C116.874 21.6914 103.835 14 89 14C67.4827 14 49.7446 30.1809 47.29 51.0386Z" fill="url(#bad_gradient)"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M86 107H125.056L102.994 140H118L75 192L86 152.5H75L86 107Z" fill="url(#lightning_gradient)"/>
       </symbol>
       <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" id="sun">
         <path
