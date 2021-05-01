@@ -5,6 +5,9 @@ html {
   @media (min-width: 1240px) {
     font-size: vw(font-size(0, false));
   }
+  @media (max-width: 375px) {
+    font-size: vw(font-size(0, false), 's');
+  }
 }
 body {
   overflow: hidden;
