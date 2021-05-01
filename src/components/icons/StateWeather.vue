@@ -142,8 +142,13 @@ export default {
   }
   &__icon {
     $size: 200;
-    height: rem($size);
+    height: rem($size + 18);
     width: rem($size);
+    @media (max-width: 640px) {
+      $size: 100;
+      height: rem($size + 18);
+      width: rem($size);
+    }
   }
 }
 </style>
