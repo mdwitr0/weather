@@ -2,12 +2,13 @@ html {
   font-family: $base-font;
   font-size: #{font-size(0, false) +px};
   color: color();
+  @media (min-width: 1240px) {
+    font-size: vw(font-size(0, false));
+  }
 }
-
 body {
   overflow: hidden;
 }
-
 body, p, h1, h2 {
   margin: 0;
 }

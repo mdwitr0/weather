@@ -3,6 +3,12 @@
   @return ($px / font-size(0, false)) +rem;
 }
 
+@function vw($px) {
+  // converts px to vw
+  $vw-context: ($template-weight * .01) * 1;
+  @return ($px/$vw-context) * 1vw;
+}
+
 @function color($key: 'light', $opacity: 1) {
   // Search colors
   @return rgba(map-get($colors, $key), $opacity);
