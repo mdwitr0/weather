@@ -36,6 +36,9 @@ export default {
   display: grid;
   grid-template-columns: 1fr min-content;
   border-radius: border-radius(0);
+  @media (max-width: 640px) {
+    border-radius: border-radius(-1);
+  }
   &__field {
     color: color("black");
     font-size: font-size(2);
@@ -43,14 +46,23 @@ export default {
     font-weight: weight(1);
     box-sizing: border-box;
     width: rem(471);
+    @media (max-width: 640px) {
+      font-size: font-size(-1);
+      padding: rem(18);
+      width: rem(276);
+    }
     &::placeholder {
-      color: color('black', 0.5);
+      color: color("black", 0.5);
     }
   }
   &__button {
     color: color("primary");
     font-size: font-size(2);
     padding: rem($padding-size);
+    @media (max-width: rem(640)) {
+      font-size: font-size(-1);
+      padding: rem(18);
+    }
     &:hover {
       color: color("nice");
     }
