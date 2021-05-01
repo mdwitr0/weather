@@ -32,11 +32,20 @@ export default {
 .additional-information {
   display: grid;
   grid-row-gap: rem(10);
+  @media (max-width: 640px) {
+    grid-row-gap: rem(2);
+  }
   &__name {
     color: color("light", 0.6);
+    @media (max-width: 640px) {
+      font-size: font-size(-1);
+    }
   }
   &__info {
     font-size: font-size(1);
+    @media (max-width: 640px) {
+      font-size: font-size(0);
+    }
   }
 }
 </style>
