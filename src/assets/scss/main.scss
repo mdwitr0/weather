@@ -6,9 +6,6 @@ html {
     font-size: vw(font-size(0, false), 's');
   }
   @media (min-width: 1240px) {
-    font-size: vw(font-size(0, false));
-  }
-  @media (min-width: 1920px) {
     font-size: vh(font-size(0, false), 'xl');
   }
 }

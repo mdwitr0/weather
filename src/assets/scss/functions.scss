@@ -11,8 +11,8 @@
 
 @function vh($px, $height-name: 'xl') {
   // converts px to vh
-  $vw-context: (map-get($windows-height, $height-name) * .01) * 1;
-  @return ($px/$vw-context) * 1vh;
+  $vh-context: (map-get($windows-height, $height-name) * .01) * 1;
+  @return ($px/$vh-context) * 1vh;
 }
 
 @function color($key: 'light', $opacity: 1) {
