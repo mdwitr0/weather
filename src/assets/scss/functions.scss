@@ -9,6 +9,12 @@
   @return ($px/$vw-context) * 1vw;
 }
 
+@function vh($px, $height-name: 'xl') {
+  // converts px to vh
+  $vw-context: (map-get($windows-height, $height-name) * .01) * 1;
+  @return ($px/$vw-context) * 1vh;
+}
+
 @function color($key: 'light', $opacity: 1) {
   // Search colors
   @return rgba(map-get($colors, $key), $opacity);
