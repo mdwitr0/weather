@@ -1,5 +1,7 @@
 {
   "name": "weather",
+  "repository": "https://gitlab.com/mdwitr0/weather",
+  "author": "Eugene Fedoryachenko",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,8 +12,10 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "register-service-worker": "^1.7.1",
+    "secure-ls": "^1.2.6",
     "vue": "^2.6.11",
-    "vuex": "^3.4.0"
+    "vuex": "^3.4.0",
+    "vuex-persistedstate": "^4.0.0-beta.3"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
