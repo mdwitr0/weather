@@ -4,6 +4,8 @@ import createPersistedState from "vuex-persistedstate";
 import SecureLS from "secure-ls";
 const ls = new SecureLS({ isCompression: false });
 
+import location from "./modules/location";
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -16,5 +18,7 @@ export default new Vuex.Store({
       },
     }),
   ],
-  modules: {},
+  modules: {
+    location,
+  },
 });

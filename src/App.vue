@@ -36,6 +36,7 @@
 import UserLocation from "./components/UserLocation";
 import CurrentWeather from "./components/CurrentWeather";
 import AdditionalInformation from "./components/AdditionalInformation";
+import { mapGetters, mapActions } from "vuex";
 export default {
   name: "App",
   components: { AdditionalInformation, CurrentWeather, UserLocation },
@@ -68,6 +69,11 @@ export default {
         },
       ],
     };
+  },
+  computed: mapGetters(["locationData"]),
+  methods: mapActions(["getLocation"]),
+  async mounted() {
+    if (!this.locationData.city) await this.getLocation();
   },
 };
 </script>
@@ -122,6 +128,5 @@ export default {
       margin: 0 rem(30) 0 rem(18);
     }
   }
-
 }
 </style>
