@@ -2,16 +2,19 @@
   <div id="app" class="forecast">
     <header class="forecast__header">
       <div class="forecast__container">
-        <UserLocation class="forecast__user-location" :city-name="cityName" />
+        <UserLocation
+          class="forecast__user-location"
+          :city-name="locationData.city"
+        />
       </div>
     </header>
     <main class="forecast__main">
       <div class="forecast__container forecast__container_size_large">
         <CurrentWeather
           class="forecast__weather"
-          :state-name="stateName"
-          :weather-assessment="weatherAssessment"
-          :temperature="temperature"
+          :state-name="currentWeather.conditionIcon"
+          :weather-assessment="currentWeather.condition"
+          :temperature="currentWeather.temperature[currentTempUnit]"
         />
       </div>
     </main>
@@ -20,7 +23,7 @@
         <div class="forecast__additional-list">
           <AdditionalInformation
             class="forecast__additional"
-            v-for="(info, idx) in additionalInfo"
+            v-for="(info, idx) in currentWeather.additionalInfo"
             :key="idx"
             :name="info.name"
             :value="info.value"
@@ -40,40 +43,11 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   name: "App",
   components: { AdditionalInformation, CurrentWeather, UserLocation },
-  data() {
-    return {
-      cityName: "Омск",
-      stateName: "sun",
-      weatherAssessment: "Преимущественно солнечно",
-      temperature: 19,
-      additionalInfo: [
-        {
-          name: "Ветер",
-          value: 5,
-          valueType: " м/c, западный",
-        },
-        {
-          name: "Давление",
-          value: 752,
-          valueType: " мм рт. ст.",
-        },
-        {
-          name: "Влажность",
-          value: 60,
-          valueType: "%",
-        },
-        {
-          name: "Вероятность дождя",
-          value: 10,
-          valueType: "%",
-        },
-      ],
-    };
-  },
-  computed: mapGetters(["locationData"]),
-  methods: mapActions(["getLocation"]),
+  computed: mapGetters(["locationData", "currentWeather", "currentTempUnit"]),
+  methods: mapActions(["getLocation", "getWeather"]),
   async mounted() {
     if (!this.locationData.city) await this.getLocation();
+    await this.getWeather(this.locationData.city);
   },
 };
 </script>
