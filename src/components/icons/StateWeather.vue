@@ -96,8 +96,18 @@
         viewBox="0 0 200 200"
         id="storm"
       >
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M47.29 51.0386C27.8988 53.8477 13 70.5847 13 90.8119C13 113.007 30.9391 131 53.0682 131H135.648C162.904 131 185 108.838 185 81.5C185 54.1619 162.904 32 135.648 32C131.759 32 127.975 32.4511 124.346 33.304C116.874 21.6914 103.835 14 89 14C67.4827 14 49.7446 30.1809 47.29 51.0386Z" fill="url(#bad_gradient)"/>
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M86 107H125.056L102.994 140H118L75 192L86 152.5H75L86 107Z" fill="url(#lightning_gradient)"/>
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M47.29 51.0386C27.8988 53.8477 13 70.5847 13 90.8119C13 113.007 30.9391 131 53.0682 131H135.648C162.904 131 185 108.838 185 81.5C185 54.1619 162.904 32 135.648 32C131.759 32 127.975 32.4511 124.346 33.304C116.874 21.6914 103.835 14 89 14C67.4827 14 49.7446 30.1809 47.29 51.0386Z"
+          fill="url(#bad_gradient)"
+        />
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M86 107H125.056L102.994 140H118L75 192L86 152.5H75L86 107Z"
+          fill="url(#lightning_gradient)"
+        />
       </symbol>
       <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" id="sun">
         <path

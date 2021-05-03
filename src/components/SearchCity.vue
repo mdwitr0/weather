@@ -1,28 +1,44 @@
 <template>
-  <form @submit="setCity" class="search-city">
+  <form @submit.prevent="setCity" class="search-city">
     <input
       id="search-city"
       type="text"
       name="city"
+      v-model="cityName"
       class="search-city__field"
       placeholder="Название города"
       aria-label="Название города"
       aria-placeholder="Название города"
     />
+    <span class="search-city__message">{{ message }}</span>
     <button type="submit" class="search-city__button">ОК</button>
   </form>
 </template>
 
 <script>
+import { mapActions, mapGetters, mapMutations } from "vuex";
+
 export default {
   name: "SearchCity",
   data() {
     return {
       cityName: "",
+      message: "",
     };
   },
+  computed: mapGetters(["locationData"]),
   methods: {
-    setCity() {},
+    ...mapMutations(["updateCity", "switchSearchForm"]),
+    ...mapActions(["getWeather"]),
+    async setCity() {
+      if (this.cityName.length >= 3) {
+        this.updateCity(this.cityName);
+        await this.getWeather(this.locationData.city);
+        this.switchSearchForm();
+      } else {
+        this.message = "Название города слишком короткое";
+      }
+    },
   },
 };
 </script>
@@ -66,6 +82,13 @@ export default {
     &:hover {
       color: color("nice");
     }
+  }
+  &__message {
+    position: absolute;
+    color: color("warning");
+    font-size: font-size(-1);
+    bottom: rem(2);
+    left: rem(21);
   }
 }
 </style>

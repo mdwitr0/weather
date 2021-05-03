@@ -5,7 +5,10 @@
       <SwitchTemperatureUnit class="user-location__switch-temp" />
     </div>
     <div class="user-location__buttons">
-      <button @click="switchSearchField" class="user-location__search-city">
+      <button
+        @click="switchSearchForm(!visibilitySearchForm)"
+        class="user-location__search-city"
+      >
         Сменить город
       </button>
       <button
@@ -16,7 +19,10 @@
         Мое местоположение
       </button>
     </div>
-    <SearchCity v-show="searchVisible" class="user-location__search" />
+    <SearchCity
+      class="user-location__search"
+      :class="{ 'user-location__search_visible_true': visibilitySearchForm }"
+    />
   </div>
 </template>
 
@@ -24,14 +30,14 @@
 import SvgIcon from "./icons/SvgIcon";
 import SwitchTemperatureUnit from "./SwitchTemperatureUnit";
 import SearchCity from "./SearchCity";
-import { mapActions } from "vuex";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 export default {
   name: "UserLocation",
   components: { SearchCity, SwitchTemperatureUnit, SvgIcon },
   props: {
     cityName: {
       type: String,
-      required: true,
+      default: null,
     },
   },
   data() {
@@ -39,14 +45,21 @@ export default {
       searchVisible: false,
     };
   },
+  computed: mapGetters([
+    "locationData",
+    "visibilitySearchForm",
+    "visibilitySearchForm",
+  ]),
   methods: {
-    ...mapActions(["getLocation"]),
-    switchSearchField() {
-      this.searchVisible = !this.searchVisible;
+    ...mapActions(["getLocation", "getWeather"]),
+    ...mapMutations(["switchSearchForm"]),
+    async updateUserLocation() {
+      await this.getLocation();
+      await this.getWeather(this.locationData.city);
     },
-    updateUserLocation() {
-      this.getLocation();
-    },
+  },
+  mounted() {
+    this.switchSearchForm();
   },
 };
 </script>
@@ -103,6 +116,12 @@ export default {
   &__search {
     position: absolute;
     top: 0;
+    opacity: 0;
+    visibility: hidden;
+    &_visible_true {
+      visibility: visible;
+      opacity: 1;
+    }
     @media (max-width: 640px) {
       top: rem(7);
       left: rem(2);
