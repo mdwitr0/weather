@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="forecast">
+  <div id="app" :class="forecastClass">
     <header class="forecast__header">
       <div class="forecast__container">
         <UserLocation
@@ -43,7 +43,12 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   name: "App",
   components: { AdditionalInformation, CurrentWeather, UserLocation },
-  computed: mapGetters(["locationData", "currentWeather", "currentTempUnit"]),
+  computed: {
+    ...mapGetters(["locationData", "currentWeather", "currentTempUnit"]),
+    forecastClass() {
+      return `forecast forecast_condition_${this.currentWeather.conditionIcon}`
+    }
+  },
   methods: mapActions(["getLocation", "getWeather"]),
   async mounted() {
     if (!this.locationData.city) await this.getLocation();
@@ -64,6 +69,19 @@ export default {
   height: 100vh;
   width: 100vw;
   background: color("nice");
+  &_condition_partly-cloudy {
+    background: color("nice-1");
+  }
+  &_condition_rain {
+    background: color("bad");
+  }
+  &_condition_strom {
+    background: color("bad-1");
+  }
+  &_condition_cloud {
+    background: color("bad-2");
+  }
+
   &__container {
     margin: 0 auto;
     max-width: rem(1215);
