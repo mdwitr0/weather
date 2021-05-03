@@ -8,7 +8,10 @@
       <button @click="switchSearchField" class="user-location__search-city">
         Сменить город
       </button>
-      <button class="user-location__search-location">
+      <button
+        @click="updateUserLocation"
+        class="user-location__search-location"
+      >
         <SvgIcon name="arrow" class="user-location__arrow-icon" />
         Мое местоположение
       </button>
@@ -21,6 +24,7 @@
 import SvgIcon from "./icons/SvgIcon";
 import SwitchTemperatureUnit from "./SwitchTemperatureUnit";
 import SearchCity from "./SearchCity";
+import { mapActions } from "vuex";
 export default {
   name: "UserLocation",
   components: { SearchCity, SwitchTemperatureUnit, SvgIcon },
@@ -36,8 +40,12 @@ export default {
     };
   },
   methods: {
+    ...mapActions(["getLocation"]),
     switchSearchField() {
       this.searchVisible = !this.searchVisible;
+    },
+    updateUserLocation() {
+      this.getLocation();
     },
   },
 };
