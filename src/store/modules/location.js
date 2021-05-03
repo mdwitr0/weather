@@ -15,6 +15,9 @@ export default {
       state.ip = locData.ip;
       state.city = locData.city;
     },
+    updateCity(state, city) {
+      state.city = city;
+    },
   },
   state: {
     ip: null,
