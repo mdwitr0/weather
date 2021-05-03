@@ -8,11 +8,14 @@ export default {
     },
   },
   mutations: {
-    updateWeather: (state, weatherData) => {
-      state.weather = { ...getForecast(weatherData) };
+    updateWeather: async (state, weatherData) => {
+      state.weather = { ...getForecast(await weatherData) };
     },
     updateTempUnit: (state, selectedUnit) => {
       state.tempUnit = selectedUnit;
+    },
+    switchSearchForm: (state, value) => {
+      state.visibilitySearchForm = value ?? false;
     },
   },
   state: {
@@ -27,9 +30,11 @@ export default {
       additionalInfo: [],
     },
     tempUnit: "celsius",
+    visibilitySearchForm: false,
   },
   getters: {
     currentWeather: (state) => state.weather,
     currentTempUnit: (state) => state.tempUnit,
+    visibilitySearchForm: (state) => state.visibilitySearchForm,
   },
 };

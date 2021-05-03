@@ -1,4 +1,4 @@
-const API_KEY = "83081e37f98d974000e4baf49623ea61";
+const API_KEY = "367b63554f194435a7573342212804";
 
 const wordLib = {
   windDirections: {
@@ -82,9 +82,15 @@ export const fetchLocation = async () => {
 
 export const fetchForecast = async (searchValue) => {
   const res = await fetch(
-    `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${searchValue}&lang=ru`
+    `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${searchValue}&lang=ru`,
+    {
+      mode: "cors",
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
+    }
   );
-  return (await res.json()) ?? {};
+  return await res.json();
 };
 
 export const getForecast = (weatherData) => {
@@ -95,35 +101,37 @@ export const getForecast = (weatherData) => {
   const pushAdditional = (name, value, valueType) => {
     result.additionalInfo.push({
       name,
-      value,
+      value: Number(value),
       valueType,
     });
   };
+
   const currentData = weatherData.current;
+  if (currentData) {
+    result.condition = currentData.condition.text;
+    result.temperature = {
+      celsius: currentData.temp_c,
+      fahrenheit: currentData.temp_f,
+    };
+    result.conditionIcon = wordLib.conditionCode[currentData.condition.code];
 
-  result.condition = currentData.condition.text;
-  result.temperature = {
-    celsius: currentData.temp_c,
-    fahrenheit: currentData.temp_f,
-  };
-  result.conditionIcon = wordLib.conditionCode[currentData.condition.code];
-
-  pushAdditional(
-    "Ветер",
-    (currentData.wind_kph / 3.6).toFixed(1),
-    ` м/c, ${wordLib.windDirections[currentData.wind_dir]}`
-  );
-  pushAdditional(
-    "Давление",
-    (currentData.pressure_mb * 0.75).toFixed(0),
-    " мм рт. ст."
-  );
-  pushAdditional("Влажность", currentData.humidity, "%");
-  pushAdditional(
-    "Вероятность дождя",
-    weatherData.forecast.forecastday[0].day.daily_chance_of_rain,
-    "%"
-  );
+    pushAdditional(
+      "Ветер",
+      (currentData.wind_kph / 3.6).toFixed(1),
+      ` м/c, ${wordLib.windDirections[currentData.wind_dir]}`
+    );
+    pushAdditional(
+      "Давление",
+      (currentData.pressure_mb * 0.75).toFixed(0),
+      " мм рт. ст."
+    );
+    pushAdditional("Влажность", currentData.humidity, "%");
+    pushAdditional(
+      "Вероятность дождя",
+      weatherData.forecast.forecastday[0].day.daily_chance_of_rain,
+      "%"
+    );
+  }
 
   return result;
 };
