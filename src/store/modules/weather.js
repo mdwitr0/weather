@@ -2,7 +2,7 @@ import { fetchForecast, getForecast } from "../../api";
 
 export default {
   actions: {
-    async getWeather({ commit }, searchValue) {
+    getWeather: async ({ commit }, searchValue) => {
       const weatherData = fetchForecast(searchValue);
       commit("updateWeather", weatherData);
     },

@@ -1,21 +1,18 @@
+import { fetchLocation } from "../../api";
+
 export default {
   actions: {
-    async getLocation({ commit }) {
-      const res = await fetch("https://freegeoip.app/json/", {
-        headers: {
-          "Accept-Language": "ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3",
-        },
-      });
-      const userLocation = await res.json();
+    getLocation: async ({ commit }) => {
+      const userLocation = await fetchLocation();
       commit("updateLocData", userLocation);
     },
   },
   mutations: {
-    updateLocData(state, locData) {
+    updateLocData: (state, locData) => {
       state.ip = locData.ip;
       state.city = locData.city;
     },
-    updateCity(state, city) {
+    updateCity: (state, city) => {
       state.city = city;
     },
   },
@@ -24,7 +21,7 @@ export default {
     city: null,
   },
   getters: {
-    locationData(state) {
+    locationData: (state) => {
       return state;
     },
   },
