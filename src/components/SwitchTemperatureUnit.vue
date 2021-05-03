@@ -3,52 +3,53 @@
     <span class="switch-temperature-unit__degree-symbol">º</span>
     <div class="switch-temperature-unit__selection">
       <label
-        for="celsius"
-        class="switch-temperature-unit__unit"
-        :class="{
-          'switch-temperature-unit__unit_selected_yes': unitType === 'celsius',
-        }"
-        aria-label="По цельсию"
-        >C</label
-      >
-      <input
-        id="celsius"
-        v-model="unitType"
-        class="switch-temperature-unit__radio"
-        value="celsius"
-        name="unit"
-        type="radio"
-      />
-      <label
-        for="fahrenheit"
+        v-for="(unit, idx) in units"
+        :for="unit.value"
+        :key="idx"
         class="switch-temperature-unit__unit"
         :class="{
           'switch-temperature-unit__unit_selected_yes':
-            unitType === 'fahrenheit',
+            currentTempUnit === unit.value,
         }"
-        aria-label="По фаренгейту"
-        >F</label
-      >
-      <input
-        id="fahrenheit"
-        v-model="unitType"
-        class="switch-temperature-unit__radio"
-        value="fahrenheit"
-        name="unit"
-        type="radio"
-      />
+        :aria-label="unit.aria"
+        >{{ unit.name }}
+        <input
+          :id="unit.value"
+          @change="updateTempUnit(`${unit.value}`)"
+          class="switch-temperature-unit__radio"
+          :value="unit.value"
+          name="unit"
+          type="radio"
+        />
+      </label>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters, mapMutations } from "vuex";
+
 export default {
   name: "SwitchTemperatureUnit",
   data() {
     return {
       unitType: "celsius",
+      units: [
+        {
+          name: "C",
+          value: "celsius",
+          aria: "По цельсию",
+        },
+        {
+          name: "F",
+          value: "fahrenheit",
+          aria: "По фаренгейту",
+        },
+      ],
     };
   },
+  computed: mapGetters(["currentTempUnit"]),
+  methods: mapMutations(["updateTempUnit"]),
 };
 </script>
 
