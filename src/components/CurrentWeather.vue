@@ -1,6 +1,6 @@
 <template>
   <div class="current-weather">
-    <div class="current-weather__result">
+    <div v-if="stateName" class="current-weather__result">
       <StateWeather class="current-weather__state" :name="stateName" />
       <h2 class="current-weather__temperature">{{ temperature }}º</h2>
     </div>
@@ -18,11 +18,11 @@ export default {
   props: {
     stateName: {
       type: String,
-      required: true,
+      default: null,
     },
     temperature: {
       type: Number,
-      required: true,
+      default: null,
     },
     weatherAssessment: {
       type: String,

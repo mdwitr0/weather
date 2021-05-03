@@ -1,5 +1,5 @@
 <template>
-  <div v-if="value" class="additional-information">
+  <div class="additional-information">
     <p v-if="name" class="additional-information__name">{{ name }}</p>
     <p class="additional-information__info">
       <span class="additional-information__value">{{ value }}</span
@@ -18,11 +18,11 @@ export default {
     },
     value: {
       type: Number,
-      required: true,
+      default: null,
     },
     valueType: {
       type: String,
-      required: true,
+      default: null,
     },
   },
 };
