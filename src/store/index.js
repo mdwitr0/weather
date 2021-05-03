@@ -5,6 +5,7 @@ import SecureLS from "secure-ls";
 const ls = new SecureLS({ isCompression: false });
 
 import location from "./modules/location";
+import weather from "./modules/weather";
 
 Vue.use(Vuex);
 
@@ -20,5 +21,6 @@ export default new Vuex.Store({
   ],
   modules: {
     location,
+    weather,
   },
 });
