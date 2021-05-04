@@ -142,7 +142,10 @@ export default {
   &__buttons {
     display: grid;
     grid-template-columns: repeat(2, max-content);
-    grid-column-gap: rem(25);
+    margin-right: rem(14);
+    @media (min-width: 380px) {
+      grid-column-gap: rem(25);
+    }
     @include base-animate(opacity);
     &_visible_false {
       opacity: 0;
@@ -151,7 +154,7 @@ export default {
   &__switch-temp {
     margin-top: rem(6);
     @include base-animate(opacity);
-    @media (max-width: rem(640)) {
+    @media (max-width: 640px) {
       margin-right: rem(14);
     }
   }

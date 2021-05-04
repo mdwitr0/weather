@@ -10,7 +10,7 @@
       aria-label="Название города"
       aria-placeholder="Название города"
     />
-    <span class="search-city__message">{{ message }}</span>
+    <span class="search-city__message">{{ errorMessage }}</span>
     <button type="submit" class="search-city__button">ОК</button>
   </form>
 </template>
@@ -26,17 +26,26 @@ export default {
       message: "",
     };
   },
-  computed: mapGetters(["locationData"]),
+  computed: {
+    ...mapGetters(["locationData"]),
+    errorMessage() {
+      if (this.cityName.length > 0 && this.cityName.length <= 3) {
+        return "Название города слишком короткое"
+      } else if (this.cityName.length > 0 && !/^[A-zА-я]+(?:[- `][A-zА-я]+)*/i.test(this.cityName)) {
+        return "Это какой-то не правильный город"
+      } else {
+        return ""
+      }
+    }
+  },
   methods: {
     ...mapMutations(["updateCity", "switchSearchForm"]),
     ...mapActions(["getWeather"]),
     async setCity() {
-      if (this.cityName.length >= 3) {
+      if (this.cityName.length > 0 && !this.errorMessage.length) {
         this.updateCity(this.cityName);
         await this.getWeather(this.locationData.city);
         this.switchSearchForm();
-      } else {
-        this.message = "Название города слишком короткое";
       }
     },
   },
@@ -75,7 +84,7 @@ export default {
     color: color("primary");
     font-size: font-size(2);
     padding: rem($padding-size);
-    @media (max-width: rem(640)) {
+    @media (max-width: 640px) {
       font-size: font-size(-1);
       padding: rem(18);
     }
@@ -88,7 +97,12 @@ export default {
     color: color("warning");
     font-size: font-size(-1);
     bottom: rem(2);
-    left: rem(21);
+    left: 0;
+    padding-left: rem($padding-size);
+    @media (max-width: 640px) {
+      font-size: font-size(-2);
+      padding-left: rem(18);
+    }
   }
 }
 </style>
