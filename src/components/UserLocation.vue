@@ -61,7 +61,6 @@ export default {
   computed: mapGetters([
     "locationData",
     "visibilitySearchForm",
-    "visibilitySearchForm",
   ]),
   methods: {
     ...mapActions(["getLocation", "getWeather"]),
@@ -190,6 +189,21 @@ export default {
     @include base-animate(opacity);
     @media (max-width: 640px) {
       margin-right: rem(14);
+    }
+  }
+}
+.forecast_condition_iphone {
+  .user-location {
+    &__arrow-icon {
+      display: none;
+    }
+    &__buttons {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap-reverse;
+    }
+    &__search-location {
+      grid-template-columns: 1fr;
     }
   }
 }

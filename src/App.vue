@@ -46,14 +46,16 @@ export default {
   computed: {
     ...mapGetters(["locationData", "currentWeather", "currentTempUnit"]),
     forecastClass() {
-      return `forecast forecast_condition_${this.currentWeather.conditionIcon}`;
+      let currentClass = `forecast forecast_condition_${this.currentWeather.conditionIcon}`
+      if (/iPhone/.test(navigator.userAgent)) currentClass += " forecast_condition_iphone"
+      return currentClass;
     },
   },
   methods: mapActions(["getLocation", "getWeather"]),
   async mounted() {
     if (!this.locationData.city) await this.getLocation();
     await this.getWeather(this.locationData.city);
-  },
+  }
 };
 </script>
 
