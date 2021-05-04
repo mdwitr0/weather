@@ -7,6 +7,7 @@ module.exports = {
       patterns: [
         path.resolve(__dirname, "./src/assets/scss/variables.scss"),
         path.resolve(__dirname, "./src/assets/scss/functions.scss"),
+        path.resolve(__dirname, "./src/assets/scss/mixins.scss"),
       ],
     },
   },

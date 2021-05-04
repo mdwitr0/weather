@@ -1,0 +1,5 @@
+@mixin base-animate($property: #{background-color, border, color}, $duration: .5s) {
+  transition-property: $property;
+  transition-duration: $duration;
+  transition-timing-function: ease-in-out;
+}
