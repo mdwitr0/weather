@@ -98,6 +98,7 @@ export default {
     $size: 20;
     width: rem($size);
     height: rem($size);
+    @include base-animate(fill);
     fill: color("light", 0.6);
     transform: rotate(11deg);
   }
@@ -119,6 +120,7 @@ export default {
   &__search-city,
   &__search-location {
     font-size: font-size(0);
+    @include base-animate();
     @media (max-width: 640px) {
       font-size: font-size(-1);
     }
