@@ -52,6 +52,7 @@ export default {
     font-size: font-size(1);
     text-align: center;
     line-height: rem(18);
+    overflow-wrap: anywhere;
     @media (max-width: 640px) {
       font-size: font-size(0);
     }
