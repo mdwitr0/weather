@@ -143,7 +143,7 @@ export default {
     display: grid;
     grid-template-columns: repeat(2, max-content);
     margin-right: rem(14);
-    @media (min-width: 380px) {
+    @media (min-width: 400px) {
       grid-column-gap: rem(25);
     }
     @include base-animate(opacity);
