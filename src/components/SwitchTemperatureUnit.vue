@@ -76,6 +76,7 @@ export default {
     padding: rem(2) rem(13);
     cursor: pointer;
     &_selected_yes {
+      @include base-animate();
       background: color("light", 0.2);
     }
   }

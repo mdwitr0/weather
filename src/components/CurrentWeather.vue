@@ -36,6 +36,7 @@ export default {
 .current-weather {
   display: grid;
   justify-content: center;
+  justify-items: center;
   @media (max-width: 640px) {
     grid-row-gap: rem(15);
   }
