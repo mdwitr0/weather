@@ -62,7 +62,7 @@ export default {
   display: grid;
   grid-template-rows: min-content 1fr min-content;
   box-sizing: border-box;
-  padding: rem(75) 0 rem(122) 0;
+  padding: rem(75) 0 rem(91) 0;
   @media (max-width: 640px) {
     padding: rem(19) 0 rem(41) 0;
   }
