@@ -68,6 +68,7 @@ export default {
   }
   height: 100vh;
   width: 100vw;
+  overflow: hidden;
   @include base-animate();
   background: color("nice");
   &_condition_partly-cloudy {
