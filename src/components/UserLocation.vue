@@ -19,10 +19,13 @@
         Мое местоположение
       </button>
     </div>
-    <SearchCity
-      class="user-location__search"
-      :class="{ 'user-location__search_visible_true': visibilitySearchForm }"
-    />
+    <div @click.self="closeSearch" class="user-location__search-box" :class="{ 'user-location__search-box_visible_true': visibilitySearchForm }">
+      <div class="user-location__container">
+        <SearchCity
+            class="user-location__search"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -57,6 +60,9 @@ export default {
       await this.getLocation();
       await this.getWeather(this.locationData.city);
     },
+    closeSearch() {
+      this.switchSearchForm()
+    }
   },
   mounted() {
     this.switchSearchForm();
@@ -66,7 +72,6 @@ export default {
 
 <style lang="scss">
 .user-location {
-  position: relative;
   display: grid;
   grid-row-gap: rem(9);
   @media (max-width: 640px) {
@@ -127,17 +132,36 @@ export default {
   &__search {
     position: absolute;
     top: 0;
+    left: 0;
     @include base-animate(opacity);
     opacity: 0;
     visibility: hidden;
+    margin: rem(80) 0 0 rem(21);
+
+    @media (max-width: 640px) {
+      margin: rem(27) 0 0 rem(21);
+    }
+  }
+  &__search-box {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+
     &_visible_true {
       visibility: visible;
-      opacity: 1;
+      .user-location__search {
+        visibility: visible;
+        opacity: 1;
+      }
     }
-    @media (max-width: 640px) {
-      top: rem(7);
-      left: rem(2);
-    }
+  }
+  &__container {
+    margin: 0 auto;
+    max-width: rem(1215);
+    position: relative;
   }
   &__buttons {
     display: grid;
