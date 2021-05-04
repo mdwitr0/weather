@@ -1,7 +1,7 @@
 {
  "theme_color": "#498CEC",
  "background_color": "#498CEC",
- "display": "browser",
+ "display": "fullscreen",
  "scope": "/",
  "start_url": "/",
  "name": "\u041f\u0440\u043e\u0433\u043d\u043e\u0437 \u043f\u043e\u0433\u043e\u0434\u044b",
@@ -43,6 +43,26 @@
    "sizes": "192x192",
    "type": "image/png",
    "density": "4.0"
+  },
+  {
+   "src": "/icons/icon-192x192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "/icons/icon-256x256.png",
+   "sizes": "256x256",
+   "type": "image/png"
+  },
+  {
+   "src": "/icons/icon-384x384.png",
+   "sizes": "384x384",
+   "type": "image/png"
+  },
+  {
+   "src": "/icons/icon-512x512.png",
+   "sizes": "512x512",
+   "type": "image/png"
   }
  ]
 }
