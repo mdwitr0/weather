@@ -1,10 +1,16 @@
 <template>
   <div class="user-location">
-    <div class="user-location__info" :class="{ 'user-location__info_visible_false': visibilitySearchForm }">
+    <div
+      class="user-location__info"
+      :class="{ 'user-location__info_visible_false': visibilitySearchForm }"
+    >
       <h1 class="user-location__city">{{ cityName }}</h1>
       <SwitchTemperatureUnit class="user-location__switch-temp" />
     </div>
-    <div class="user-location__buttons" :class="{ 'user-location__buttons_visible_false': visibilitySearchForm }">
+    <div
+      class="user-location__buttons"
+      :class="{ 'user-location__buttons_visible_false': visibilitySearchForm }"
+    >
       <button
         @click="switchSearchForm(!visibilitySearchForm)"
         class="user-location__search-city"
@@ -19,11 +25,15 @@
         Мое местоположение
       </button>
     </div>
-    <div @click.self="closeSearch" class="user-location__search-box" :class="{ 'user-location__search-box_visible_true': visibilitySearchForm }">
+    <div
+      @click.self="closeSearch"
+      class="user-location__search-box"
+      :class="{
+        'user-location__search-box_visible_true': visibilitySearchForm,
+      }"
+    >
       <div class="user-location__container">
-        <SearchCity
-            class="user-location__search"
-        />
+        <SearchCity class="user-location__search" />
       </div>
     </div>
   </div>
@@ -61,8 +71,8 @@ export default {
       await this.getWeather(this.locationData.city);
     },
     closeSearch() {
-      this.switchSearchForm()
-    }
+      this.switchSearchForm();
+    },
   },
   mounted() {
     this.switchSearchForm();
@@ -100,11 +110,11 @@ export default {
       .user-location__city {
         opacity: 0;
       }
-      @media (max-width: 640px ){
+      @media (max-width: 640px) {
         .user-location__switch-temp {
           opacity: 0;
         }
-      }      
+      }
     }
   }
   &__search-city,

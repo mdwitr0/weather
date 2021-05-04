@@ -30,13 +30,16 @@ export default {
     ...mapGetters(["locationData"]),
     errorMessage() {
       if (this.cityName.length > 0 && this.cityName.length <= 3) {
-        return "Название города слишком короткое"
-      } else if (this.cityName.length > 0 && !/^[A-zА-я]+(?:[- `][A-zА-я]+)*/i.test(this.cityName)) {
-        return "Это какой-то не правильный город"
+        return "Название города слишком короткое";
+      } else if (
+        this.cityName.length > 0 &&
+        !/^[A-zА-я]+(?:[- `][A-zА-я]+)*/i.test(this.cityName)
+      ) {
+        return "Это какой-то не правильный город";
       } else {
-        return ""
+        return "";
       }
-    }
+    },
   },
   methods: {
     ...mapMutations(["updateCity", "switchSearchForm"]),

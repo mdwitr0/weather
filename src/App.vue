@@ -46,8 +46,8 @@ export default {
   computed: {
     ...mapGetters(["locationData", "currentWeather", "currentTempUnit"]),
     forecastClass() {
-      return `forecast forecast_condition_${this.currentWeather.conditionIcon}`
-    }
+      return `forecast forecast_condition_${this.currentWeather.conditionIcon}`;
+    },
   },
   methods: mapActions(["getLocation", "getWeather"]),
   async mounted() {
